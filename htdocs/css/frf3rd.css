@@ -1,0 +1,45 @@
+.friendfeed-comments {
+}
+
+/* Блок определения ссылок - start */
+.friendfeed-comments a {
+    text-decoration: none;
+    color: #7777cc;
+}
+.friendfeed-comments a:hover {
+    text-decoration: underline;
+}
+/* Блок определения ссылок - end */
+
+/* Ссылка даты */
+.friendfeed-comments a.date {
+    color: #666666;
+}
+
+/* Строка с лайками */
+.friendfeed-comments .likes {
+    background-color: transparent;
+    background-image: url(/img/smile.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: left top;
+    padding-left: 21px;
+    margin-left: 16px;
+    color: #666666;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* Коментарии */
+.friendfeed-comments .comment.friend {
+    background-color: transparent;
+    background-image: url(/img/comment.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: left top;
+    padding-left: 21px;
+    margin-left: 16px;
+    color: #666666;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
