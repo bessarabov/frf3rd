@@ -37,7 +37,7 @@ function processJSON(s){
     monthNames[9]="сентября";
     monthNames[10]="октября";
     monthNames[11]="ноября";
-    monthNames[11]="декабря";
+    monthNames[12]="декабря";
 
     tmpHTML="";
     var ebody = document.createElement("div");
