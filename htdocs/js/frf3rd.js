@@ -52,44 +52,47 @@ function processJSON(s){
     info.innerHTML  = tmpHTML;
     
     // Лайки
-    tmpHTML="";
-    var likes = document.createElement("div");
-    likes.setAttribute("class","likes");
-    tmpHTML = "<span class='lbody'>";
-    for(i=0; i<s.likes.length; i++) {
-        tmpHTML += "<a href='http://friendfeed.com/" + s.likes[i].from.id + "' sid='' class='l_profile'>" + s.likes[i].from.name + "</a>";
-        if (i<s.likes.length-2) {
-            tmpHTML +=", ";
-        } else if (i<s.likes.length-1) {
-            tmpHTML +=" и ";
+    if (s.likes) {
+        tmpHTML="";
+        var likes = document.createElement("div");
+        likes.setAttribute("class","likes");
+        tmpHTML = "<span class='lbody'>";
+        for(i=0; i<s.likes.length; i++) {
+            tmpHTML += "<a href='http://friendfeed.com/" + s.likes[i].from.id + "' sid='' class='l_profile'>" + s.likes[i].from.name + "</a>";
+            if (i<s.likes.length-2) {
+                tmpHTML +=", ";
+            } else if (i<s.likes.length-1) {
+                tmpHTML +=" и ";
+            }
+     
         }
- 
-    }
-    if (s.likes.length == 1) {
-        tmpHTML += " оценил/-а этот материал </span>";
-    } else if (s.likes.length > 1) {
-        tmpHTML += " оценили этот материал </span>";
-    }
+        if (s.likes.length == 1) {
+            tmpHTML += " оценил/-а этот материал </span>";
+        } else if (s.likes.length > 1) {
+            tmpHTML += " оценили этот материал </span>";
+        }
 
-    likes.innerHTML  = tmpHTML;
-    
+        likes.innerHTML  = tmpHTML;
+    }
     // Комменты
-    tmpHTML="";
-    var comments = document.createElement("div");
-    comments.setAttribute("class","comments");
-    for(i=0; i<s.comments.length; i++) {
-        tmpHTML += " <div class='comment friend' cid=''>"; 
-        tmpHTML += "   <div class='quote'></div>"; 
-        tmpHTML += "   <div class='content'>"; 
-        tmpHTML += s.comments[i].body;
-        tmpHTML += "    -"; 
-        tmpHTML += "    <a href='http://friendfeed.com/" + s.comments[i].from.id + "' sid='41cb623ee4f811dc8ae7003048343a40' class='l_profile'>" + s.comments[i].from.name + "</a>"; 
-        tmpHTML += "   </div>"; 
-        tmpHTML += "  </div>";
+    if (s.comments) {
+        tmpHTML="";
+        var comments = document.createElement("div");
+        comments.setAttribute("class","comments");
+        for(i=0; i<s.comments.length; i++) {
+            tmpHTML += " <div class='comment friend' cid=''>"; 
+            tmpHTML += "   <div class='quote'></div>"; 
+            tmpHTML += "   <div class='content'>"; 
+            tmpHTML += s.comments[i].body;
+            tmpHTML += "    -"; 
+            tmpHTML += "    <a href='http://friendfeed.com/" + s.comments[i].from.id + "' sid='41cb623ee4f811dc8ae7003048343a40' class='l_profile'>" + s.comments[i].from.name + "</a>"; 
+            tmpHTML += "   </div>"; 
+            tmpHTML += "  </div>";
+        }
+        
+        comments.innerHTML = tmpHTML;
     }
     
-    comments.innerHTML = tmpHTML;
-
     e.appendChild(ebody);
     e.appendChild(info);
     e.appendChild(likes);
