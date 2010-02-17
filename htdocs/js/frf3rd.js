@@ -1,4 +1,8 @@
 function createFriendFeedComments(ff_entry_id, ff_div_id) {
+    
+    // Запускаю крутилку
+    var e = document.getElementById(ff_div_id);
+    e.innerHTML = "<img src='/img/ajax-loader.gif'/>";
 
     var scripturl = 'http://friendfeed-api.com/v2/entry/' + ff_entry_id;
     var pars = "callback=processJSON&pretty=1";
@@ -9,8 +13,11 @@ function createFriendFeedComments(ff_entry_id, ff_div_id) {
 
 function createFriendFeedCommentsFromUrl(ff_entry_url, ff_div_id) {
     
-    var ff_entry_part = ff_entry_url.replace(new RegExp(/https?:\/\/friendfeed.com\//),"");
+    // Запускаю крутилку
+    var e = document.getElementById(ff_div_id);
+    e.innerHTML = "<img src='/img/ajax-loader.gif'/>";
     
+    var ff_entry_part = ff_entry_url.replace(new RegExp(/https?:\/\/friendfeed.com\//),"");
     var scripturl = 'http://friendfeed-api.com/v2/feed/' + ff_entry_part;
     var pars = "callback=processJSON&pretty=1";
     
@@ -38,6 +45,7 @@ function processJSON(s){
 
     var e = document.getElementById(ff_div_id);
     e.className = 'friendfeed-comments';
+    e.innerHTML = ""; 
     
     var tmpHTML;
     
