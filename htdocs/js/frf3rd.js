@@ -2,10 +2,22 @@ function createFriendFeedComments(ff_entry_id, ff_div_id) {
 
     var scripturl = 'http://friendfeed-api.com/v2/entry/' + ff_entry_id;
     var pars = "callback=processJSON&pretty=1";
-
+    
     loadJSON(scripturl + "?" + pars);
 
 }
+
+function createFriendFeedCommentsFromUrl(ff_entry_url, ff_div_id) {
+    
+    var ff_entry_part = ff_entry_url.replace(new RegExp(/https?:\/\/friendfeed.com\//),"");
+    
+    var scripturl = 'http://friendfeed-api.com/v2/feed/' + ff_entry_part;
+    var pars = "callback=processJSON&pretty=1";
+    
+    loadJSON(scripturl + "?" + pars);
+
+}
+
 
 // Функция загружаент json код в script блока head текущей страницы
 function loadJSON(url) {
@@ -19,6 +31,10 @@ function loadJSON(url) {
 // Самая главная функция - в нее передается json структура, и это функция
 // отрисовывает весь html
 function processJSON(s){
+
+    if (s.entries) {
+        s = s.entries[0];
+    }
 
     var e = document.getElementById(ff_div_id);
     e.className = 'friendfeed-comments';
