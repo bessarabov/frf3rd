@@ -10,14 +10,21 @@
 </head>
 
 <body>
-
 <p>
-    <a href="sample1.html">Sample of creating frf block by post id</a>
+    <a href="index.html">index</a>
 </p>
 
-<p>
-    <a href="sample2.html">Sample of creating frf block by post url</a>
-</p>
+<div id="friendfeed-comments">
+</div>
+
+<script type="text/javascript">
+    
+    var ff_entry_url = "http://friendfeed.com/bessarabov/c5eb99af/friendfeed-api";
+    var ff_div_id = "friendfeed-comments";
+
+    createFriendFeedCommentsFromUrl(ff_entry_url, ff_div_id);
+
+</script>
 
 </body>
 </html>
